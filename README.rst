@@ -48,3 +48,11 @@ are found that have ``setUp`` etc. methods that don't call ``super()``.
 
 You can disable the plugin by passing the options ``-p no:super_check`` to
 ``py.test``.
+
+Caveats
+-------
+
+On Python 2, you'll need to ensure any decorators you use on your ``setUp``
+etc. methods set ``__wrapped__``, to allow decorator-unwrapping so the inner
+source can be inspected. This is the default behaviour of ``functools.wraps``
+on Python 3 so you'll be more forwards compatible anyway.
