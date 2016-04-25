@@ -4,10 +4,10 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 import subprocess
 import sys
-from lib2to3.main import main as lib2to3_main
 
 import pytest
 from flake8.main import main as flake8_main
+from libmodernize.main import main as libmodernize_main
 
 
 CODE_PATHS = [
@@ -38,7 +38,7 @@ def main():
 
     if run_lint:
         exit_on_failure(run_flake8())
-        exit_on_failure(run_2to3())
+        exit_on_failure(run_modernize())
         exit_on_failure(run_isort())
 
         # Broken on 2.7.9 due to http://bugs.python.org/issue23063
@@ -66,16 +66,10 @@ def run_flake8():
     return did_fail
 
 
-def run_2to3():
-    print('Running 2to3 checks')
-    ret = lib2to3_main('lib2to3.fixes', [
-        '-f', 'idioms',
-        '-f', 'isinstance',
-        '-f', 'set_literal',
-        '-f', 'tuple_params',
-        '-j', '4',
-    ] + CODE_PATHS)
-    print('2to3 failed' if ret else '2to3 passed')
+def run_modernize():
+    print('Running modernize checks')
+    ret = libmodernize_main(CODE_PATHS)
+    print('libmodernize failed' if ret else 'libmodernize passed')
     return ret
 
 
