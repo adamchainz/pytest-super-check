@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3.6
 # -*- coding: utf-8 -*-
 from __future__ import absolute_import, division, print_function, unicode_literals
 
@@ -73,5 +73,6 @@ setup(
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
     ],
 )
