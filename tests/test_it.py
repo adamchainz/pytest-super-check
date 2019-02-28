@@ -1,12 +1,4 @@
-# -*- encoding:utf-8 -*-
-from __future__ import absolute_import, division, print_function, unicode_literals
-
-import six
-
-if six.PY3:
-    pytest_plugins = ['pytester']
-else:
-    pytest_plugins = [b'pytester']
+pytest_plugins = ['pytester']
 
 
 def test_it_does_not_complain_when_everything_supers_correctly(testdir):

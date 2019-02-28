@@ -42,12 +42,14 @@ Install from pip with:
 
     pip install pytest-super-check
 
-Pytest will automatically find the plugin and use it when you run ``py.test``.
-Test discovery will then blow up if any subclasses of ``unittest.TestCase``
-are found that have ``setUp`` etc. methods that don't call ``super()``.
+Python 3.4+ supported.
+
+Pytest will automatically find and use the plugin. Test discovery will then
+blow up if any subclasses of ``unittest.TestCase`` are found that have
+``setUp`` etc. methods that don't call ``super()``.
 
 You can disable the plugin by passing the options ``-p no:super_check`` to
-``py.test``.
+``pytest``.
 
 Caveats
 -------

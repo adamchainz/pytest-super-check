@@ -1,11 +1,7 @@
-# -*- encoding:utf-8 -*-
-from __future__ import absolute_import, division, print_function, unicode_literals
-
 import inspect
 from collections import defaultdict
 
 import pytest
-import six
 from _pytest.unittest import UnitTestCase
 
 __version__ = '1.0.0'
@@ -40,13 +36,12 @@ def pytest_collection_modifyitems(session, config, items):
             while hasattr(real_func, '__wrapped__'):
                 real_func = get_real_func(real_func.__wrapped__)
 
-            code = six.get_function_code(real_func)
-            if 'super' not in code.co_names:
+            if 'super' not in real_func.__code__.co_names:
                 errors[parent].append(name)
 
     if errors:
         raise pytest.UsageError(*[
-            error_msg(p, names) for p, names in six.iteritems(errors)
+            error_msg(p, names) for p, names in errors.items()
         ])
 
 
