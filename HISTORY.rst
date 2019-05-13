@@ -1,12 +1,14 @@
 .. :changelog:
 
 History
--------
+=======
 
 Pending Release
 ---------------
 
 .. Insert new release notes below this line
+
+* Update Python support to 3.5-3.7, as 3.4 has reached its end of life.
 
 2.0.0 (2019-02-28)
 ------------------
