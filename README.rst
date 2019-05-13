@@ -12,7 +12,7 @@ Pytest plugin to check your TestCase classes call super in setUp, tearDown,
 etc.
 
 Features
---------
+========
 
 This plugin checks all ``TestCase`` classes in your test suite to ensure that
 their ``setUp``, ``tearDown``, ``setUpClass``, ``tearDownClass``, and
@@ -22,7 +22,7 @@ specific base class that when skipped (by accidentally missing ``super()``),
 cause subtle bugs.
 
 About
------
+=====
 
 I developed this feature in a closed source Nose plugin whilst working on the
 big Django project at YPlan. We had some custom enhancements and fixes on top
@@ -33,8 +33,8 @@ etc. doing magic around not requiring ``super()`` to be called. Our solution
 was to just ensure every ``TestCase`` always calls ``super()`` in those
 methods. This is a Pytest port of that plugin.
 
-Usage
------
+Installation
+============
 
 Install from pip with:
 
@@ -42,7 +42,10 @@ Install from pip with:
 
     pip install pytest-super-check
 
-Python 3.4+ supported.
+Python 3.5-3.7 supported.
+
+Usage
+=====
 
 Pytest will automatically find and use the plugin. Test discovery will then
 blow up if any subclasses of ``unittest.TestCase`` are found that have
@@ -50,11 +53,3 @@ blow up if any subclasses of ``unittest.TestCase`` are found that have
 
 You can disable the plugin by passing the options ``-p no:super_check`` to
 ``pytest``.
-
-Caveats
--------
-
-On Python 2, you'll need to ensure any decorators you use on your ``setUp``
-etc. methods set ``__wrapped__``, to allow decorator-unwrapping so the inner
-source can be inspected. This is the default behaviour of ``functools.wraps``
-on Python 3 so you'll be more forwards compatible anyway.
