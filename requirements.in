@@ -4,3 +4,4 @@ isort
 multilint
 Pygments
 pytest
+twine
