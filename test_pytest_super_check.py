@@ -1,4 +1,4 @@
-pytest_plugins = ['pytester']
+pytest_plugins = ["pytester"]
 
 
 def test_it_does_not_complain_when_everything_supers_correctly(testdir):
@@ -52,9 +52,9 @@ def test_it_complains_when_a_case_does_not_super_in_setUp(testdir):
     )
     out = testdir.runpytest()
     assert out.ret > 0
-    out.stderr.fnmatch_lines([
-        'ERROR: test_one.py::MyTests does not call super() in setUp'
-    ])
+    out.stderr.fnmatch_lines(
+        ["ERROR: test_one.py::MyTests does not call super() in setUp"]
+    )
 
 
 def test_it_complains_when_a_case_does_not_super_in_tearDown(testdir):
@@ -74,9 +74,9 @@ def test_it_complains_when_a_case_does_not_super_in_tearDown(testdir):
     )
     out = testdir.runpytest()
     assert out.ret > 0
-    out.stderr.fnmatch_lines([
-        'ERROR: test_one.py::MyTests does not call super() in tearDown'
-    ])
+    out.stderr.fnmatch_lines(
+        ["ERROR: test_one.py::MyTests does not call super() in tearDown"]
+    )
 
 
 def test_it_complains_when_a_case_does_not_super_in_setUpClass(testdir):
@@ -97,9 +97,9 @@ def test_it_complains_when_a_case_does_not_super_in_setUpClass(testdir):
     )
     out = testdir.runpytest()
     assert out.ret > 0
-    out.stderr.fnmatch_lines([
-        'ERROR: test_one.py::MyTests does not call super() in setUpClass'
-    ])
+    out.stderr.fnmatch_lines(
+        ["ERROR: test_one.py::MyTests does not call super() in setUpClass"]
+    )
 
 
 def test_it_complains_when_a_case_does_not_super_in_setUpTestData(testdir):
@@ -125,9 +125,9 @@ def test_it_complains_when_a_case_does_not_super_in_setUpTestData(testdir):
     )
     out = testdir.runpytest()
     assert out.ret > 0
-    out.stderr.fnmatch_lines([
-        'ERROR: test_one.py::MyTests does not call super() in setUpTestData'
-    ])
+    out.stderr.fnmatch_lines(
+        ["ERROR: test_one.py::MyTests does not call super() in setUpTestData"]
+    )
 
 
 def test_it_complains_when_a_case_does_not_super_in_tearDownClass(testdir):
@@ -148,9 +148,9 @@ def test_it_complains_when_a_case_does_not_super_in_tearDownClass(testdir):
     )
     out = testdir.runpytest()
     assert out.ret > 0
-    out.stderr.fnmatch_lines([
-        'ERROR: test_one.py::MyTests does not call super() in tearDownClass'
-    ])
+    out.stderr.fnmatch_lines(
+        ["ERROR: test_one.py::MyTests does not call super() in tearDownClass"]
+    )
 
 
 def test_it_complains_when_a_case_does_not_super_in_setUp_and_setUpClass(testdir):
@@ -174,9 +174,9 @@ def test_it_complains_when_a_case_does_not_super_in_setUp_and_setUpClass(testdir
     )
     out = testdir.runpytest()
     assert out.ret > 0
-    out.stderr.fnmatch_lines([
-        'ERROR: test_one.py::MyTests does not call super() in setUpClass, setUp'
-    ])
+    out.stderr.fnmatch_lines(
+        ["ERROR: test_one.py::MyTests does not call super() in setUpClass, setUp"]
+    )
 
 
 def test_it_does_not_complain_when_a_decorator_is_used_but_super_is_called(testdir):
@@ -235,6 +235,6 @@ def test_it_complains_when_a_decorator_is_used_and_super_is_not_called(testdir):
     )
     out = testdir.runpytest()
     assert out.ret > 0
-    out.stderr.fnmatch_lines([
-        'ERROR: test_one.py::MyTests does not call super() in setUp'
-    ])
+    out.stderr.fnmatch_lines(
+        ["ERROR: test_one.py::MyTests does not call super() in setUp"]
+    )

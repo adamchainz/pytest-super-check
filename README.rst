@@ -8,6 +8,9 @@ pytest-super-check
 .. image:: https://img.shields.io/pypi/v/pytest-super-check.svg
         :target: https://pypi.python.org/pypi/pytest-super-check
 
+.. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/python/black
+
 Pytest plugin to check your TestCase classes call super in setUp, tearDown,
 etc.
 
