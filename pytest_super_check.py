@@ -4,24 +4,26 @@ from collections import defaultdict
 import pytest
 from _pytest.unittest import UnitTestCase
 
-__version__ = '2.0.0'
+__version__ = "2.0.0"
 
 
 def pytest_collection_modifyitems(session, config, items):
     errors = defaultdict(list)
 
     for item in items:
-        parent = getattr(item, 'parent', None)
-        if (
-            parent is None or
-            not isinstance(parent, UnitTestCase) or
-            parent in errors
-        ):
+        parent = getattr(item, "parent", None)
+        if parent is None or not isinstance(parent, UnitTestCase) or parent in errors:
             continue
 
         klass = parent.cls
 
-        for name in ('setUpClass', 'setUpTestData', 'setUp', 'tearDown', 'tearDownClass'):
+        for name in (
+            "setUpClass",
+            "setUpTestData",
+            "setUp",
+            "tearDown",
+            "tearDownClass",
+        ):
             try:
                 klass.__dict__[name]
             except KeyError:
@@ -33,16 +35,14 @@ def pytest_collection_modifyitems(session, config, items):
             real_func = get_real_func(func)
 
             # Unwrap any decorators, we only care about inspecting the innermost
-            while hasattr(real_func, '__wrapped__'):
+            while hasattr(real_func, "__wrapped__"):
                 real_func = get_real_func(real_func.__wrapped__)
 
-            if 'super' not in real_func.__code__.co_names:
+            if "super" not in real_func.__code__.co_names:
                 errors[parent].append(name)
 
     if errors:
-        raise pytest.UsageError(*[
-            error_msg(p, names) for p, names in errors.items()
-        ])
+        raise pytest.UsageError(*[error_msg(p, names) for p, names in errors.items()])
 
 
 def get_real_func(func):
@@ -60,7 +60,6 @@ def get_real_func(func):
 
 
 def error_msg(parent, names):
-    return '{parent_id} does not call super() in {names}'.format(
-        parent_id=parent.nodeid,
-        names=', '.join(names),
+    return "{parent_id} does not call super() in {names}".format(
+        parent_id=parent.nodeid, names=", ".join(names)
     )
