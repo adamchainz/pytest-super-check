@@ -29,6 +29,12 @@ setup(
     author="Adam Johnson",
     author_email="me@adamj.eu",
     url="https://github.com/adamchainz/pytest-super-check",
+    project_urls={
+        "Changelog": (
+            "https://github.com/adamchainz/pytest-super-check"
+            + "/blob/master/HISTORY.rst"
+        )
+    },
     py_modules=["pytest_super_check"],
     include_package_data=True,
     install_requires=["pytest"],
