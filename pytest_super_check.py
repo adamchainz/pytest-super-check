@@ -4,8 +4,6 @@ from collections import defaultdict
 import pytest
 from _pytest.unittest import UnitTestCase
 
-__version__ = "2.0.0"
-
 
 def pytest_collection_modifyitems(session, config, items):
     errors = defaultdict(list)
