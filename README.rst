@@ -45,7 +45,7 @@ Install from pip with:
 
     pip install pytest-super-check
 
-Python 3.5-3.8 supported.
+Python 3.5 to 3.8 supported.
 
 Usage
 =====
