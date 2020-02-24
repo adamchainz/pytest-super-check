@@ -43,7 +43,7 @@ Install from pip with:
 
 .. code-block:: bash
 
-    pip install pytest-super-check
+    python -m pip install pytest-super-check
 
 Python 3.5 to 3.8 supported.
 
