@@ -2,8 +2,8 @@
 pytest-super-check
 ==================
 
-.. image:: https://img.shields.io/travis/adamchainz/pytest-super-check.svg
-        :target: https://travis-ci.org/adamchainz/pytest-super-check
+.. image:: https://github.com/adamchainz/pytest-super-check/workflows/CI/badge.svg?branch=master
+        :target: https://github.com/adamchainz/pytest-super-check/actions?workflow=CI
 
 .. image:: https://img.shields.io/pypi/v/pytest-super-check.svg
         :target: https://pypi.python.org/pypi/pytest-super-check
