@@ -3,13 +3,13 @@ pytest-super-check
 ==================
 
 .. image:: https://github.com/adamchainz/pytest-super-check/workflows/CI/badge.svg?branch=master
-        :target: https://github.com/adamchainz/pytest-super-check/actions?workflow=CI
+   :target: https://github.com/adamchainz/pytest-super-check/actions?workflow=CI
 
 .. image:: https://img.shields.io/pypi/v/pytest-super-check.svg
-        :target: https://pypi.python.org/pypi/pytest-super-check
+   :target: https://pypi.python.org/pypi/pytest-super-check
 
 .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
-    :target: https://github.com/python/black
+   :target: https://github.com/python/black
 
 Pytest plugin to check your TestCase classes call super in setUp, tearDown,
 etc.
