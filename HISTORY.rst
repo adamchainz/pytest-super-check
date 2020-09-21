@@ -1,6 +1,8 @@
 History
 =======
 
+* Move license from BSD to MIT License.
+
 2.1.0 (2019-12-19)
 ------------------
 
