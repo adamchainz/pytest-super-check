@@ -2,7 +2,7 @@
 pytest-super-check
 ==================
 
-.. image:: https://img.shields.io/github/workflow/status/adamchainz/pytest-super-check/CI/master?style=for-the-badge
+.. image:: https://img.shields.io/github/workflow/status/adamchainz/pytest-super-check/CI/main?style=for-the-badge
    :target: https://github.com/adamchainz/pytest-super-check/actions?workflow=CI
 
 .. image:: https://img.shields.io/pypi/v/pytest-super-check.svg?style=for-the-badge
