@@ -49,7 +49,7 @@ Install from pip with:
 
     python -m pip install pytest-super-check
 
-Python 3.6 to 3.9 supported.
+Python 3.6 to 3.10 supported.
 
 ----
 
