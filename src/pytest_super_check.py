@@ -40,7 +40,7 @@ def pytest_collection_modifyitems(session, config, items):
                 errors[parent].append(name)
 
     if errors:
-        raise pytest.UsageError(*[error_msg(p, names) for p, names in errors.items()])
+        raise pytest.UsageError(*(error_msg(p, names) for p, names in errors.items()))
 
 
 def get_real_func(func):
