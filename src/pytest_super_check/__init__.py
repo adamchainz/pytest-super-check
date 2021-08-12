@@ -1,11 +1,14 @@
 import inspect
 from collections import defaultdict
+from typing import Any, Callable, List
 
 import pytest
+from _pytest.config import Config
+from _pytest.nodes import Item
 from _pytest.unittest import UnitTestCase
 
 
-def pytest_collection_modifyitems(session, config, items):
+def pytest_collection_modifyitems(config: Config, items: List[Item]) -> None:
     errors = defaultdict(list)
 
     for item in items:
@@ -34,7 +37,9 @@ def pytest_collection_modifyitems(session, config, items):
 
             # Unwrap any decorators, we only care about inspecting the innermost
             while hasattr(real_func, "__wrapped__"):
-                real_func = get_real_func(real_func.__wrapped__)
+                real_func = get_real_func(
+                    real_func.__wrapped__  # type: ignore [attr-defined]
+                )
 
             if "super" not in real_func.__code__.co_names:
                 errors[parent].append(name)
@@ -43,7 +48,7 @@ def pytest_collection_modifyitems(session, config, items):
         raise pytest.UsageError(*(error_msg(p, names) for p, names in errors.items()))
 
 
-def get_real_func(func):
+def get_real_func(func: Callable[..., Any]) -> Callable[..., Any]:
     """
     Copied from patchy.
 
@@ -52,12 +57,12 @@ def get_real_func(func):
     can peel back the layers to the underlying function very easily.
     """
     if inspect.ismethod(func):
-        return func.__func__
+        return func.__func__  # type: ignore [attr-defined]
     else:
         return func
 
 
-def error_msg(parent, names):
+def error_msg(parent: UnitTestCase, names: List[str]) -> str:
     return "{parent_id} does not call super() in {names}".format(
         parent_id=parent.nodeid, names=", ".join(names)
     )
