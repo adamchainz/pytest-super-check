@@ -57,7 +57,7 @@ def get_real_func(func: Callable[..., Any]) -> Callable[..., Any]:
     can peel back the layers to the underlying function very easily.
     """
     if inspect.ismethod(func):
-        return func.__func__  # type: ignore [attr-defined]
+        return func.__func__
     else:
         return func
 
