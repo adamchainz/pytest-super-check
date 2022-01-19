@@ -1,6 +1,8 @@
+from __future__ import annotations
+
 import inspect
 from collections import defaultdict
-from typing import Any, Callable, List
+from typing import Any, Callable
 
 import pytest
 from _pytest.config import Config
@@ -8,7 +10,7 @@ from _pytest.nodes import Item
 from _pytest.unittest import UnitTestCase
 
 
-def pytest_collection_modifyitems(config: Config, items: List[Item]) -> None:
+def pytest_collection_modifyitems(config: Config, items: list[Item]) -> None:
     errors = defaultdict(list)
 
     for item in items:
@@ -62,7 +64,7 @@ def get_real_func(func: Callable[..., Any]) -> Callable[..., Any]:
         return func
 
 
-def error_msg(parent: UnitTestCase, names: List[str]) -> str:
+def error_msg(parent: UnitTestCase, names: list[str]) -> str:
     return "{parent_id} does not call super() in {names}".format(
         parent_id=parent.nodeid, names=", ".join(names)
     )
