@@ -2,7 +2,8 @@ from __future__ import annotations
 
 import inspect
 from collections import defaultdict
-from typing import Any, Callable
+from typing import Any
+from typing import Callable
 
 import pytest
 from _pytest.config import Config
