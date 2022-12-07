@@ -15,6 +15,14 @@ pytest-super-check
    :target: https://github.com/pre-commit/pre-commit
    :alt: pre-commit
 
+Unmaintained (2022-12-07)
+-------------------------
+
+I stopped maintaining this package as it has never been popular.
+I think it would be better to use a lint rule to enforce calling ``super()`` in test cases.
+
+----
+
 Pytest plugin to check your TestCase classes call super in setUp, tearDown,
 etc.
 
